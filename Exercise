@@ -1,0 +1,175 @@
+Terminal Basic Exercise Part 1
+
+make a directory called first mkdir first
+
+change directory to the first folder cd first
+
+create a file called person.txt touch person.txt
+
+change the name of person.txt to another.txt mv person.txt another.txt
+
+make a copy of the another.txt file and call it copy.txt cp another.txt copy.txt
+
+remove the copy.txt file rm copy.txt
+
+make a copy of the first folder and call it second cp -r first second
+
+delete the second folder rm -rf second
+
+Terminal Basic Exercise Part 2
+
+The command man stad for manual and is used to learn more about different and available flag
+
+-a: Include directory entries whose names begin with a dot (.). (hidden folder/directory)
+
+-l: List in long format. A total sum for all the file sizes is output on a line before the long listing.
+
+you ca jump between words in Mac termial by holding the option key and pressing the left/right arrow key
+
+You can get to the end of a line in terminal by pressing control+e
+
+You can get to the beginning of a line in terminal by pressing control+a
+
+You can delete a word (without pressing backspace multiple times) in terminal by pressing Option + backspace
+
+A shell is a actual program that process command and output result while a termial make uses of shell for input ad output
+
+An absolute path make uses of a complete detail whe working in/with directory while relative path can be seen as some kind of shortcut (Incomplete details)
+
+flag is used to modify behaviours of command. examples of flag used includes -r, -rf, -l
+
+-r: removes file while -rf: force remove folder.
+
+Part I (Permissions and links)
+
+Create a file called restricted.txt touch restricted.txt
+
+Change the permissions on the restricted.txt file to allow the owner to read and write to the restricted.txt file. Do this using the Octal Notation. chmod 700 restricted.txt
+
+Change the permissions on the restricted.txt file to only allow the owner, group and everyone to read and write and execute the restricted.txt file. Do this using the Symbolic notation. chmod ugo+rwx restricted.txt
+
+Create a folder called secret_files mkdir secret_files
+
+Inside the secret_files folder create a file called first_secret.txt cd secret_ files
+
+touch first_secret.txt
+
+and another folder called classified.
+
+mkdir classified
+
+Inside of the classified folder create a file called super_secret.txt
+
+cd classified
+
+touch super_secret
+
+Change the permissions on the secret_files to only allow the owner and group to read, write and execute in all the files and folders inside of secret_files. Do this using the Octal Notation.
+
+cd ..
+
+cd ..
+
+chmod -R 770 secret_files
+
+Create a hard link for the restricted.txt called hard_link: ln restricted.txt hard_link
+
+Create a symbolic link for the classified folder called classified_link: ln -s secret_files/classified classified_link
+
+Part II (Piping and Redirection)
+
+Sort vegetables.txt: sort vegetables.txt
+
+Count the number of lines in vegetables.txt: wc -l vegetables.txt
+
+Create a file called vegetables_sorted.txt which contains all the unique vegetables sorted in ascending order in vegetables.txt (do this without the touch command): cat vegetables.txt | sort | uniq > vegetables_sorted
+
+Create a file called last_three.txt which contains the last three vegetables in the vegetables.txt file (do this without the touch command): cat vegetables.txt | tail -n 3 > last_three.txt
+
+Count the number of lines the word "Broccoli" appears on (using wc and grep): cat vegetables.txt | grep "Broccoli" | wc -l
+
+Part 1
+
+Create an environment variable called FIRST_NAME and set it equal to your first name (this does not need to be permanent) export FIRST_NAME=Alimi
+
+Print the FIRST_NAME variable echo $FIRST_NAME
+
+Print out the $PATH variable echo $PATH
+
+What is the $PATH variable It is a set of path that help us find where our command run.
+
+Why would you want to create an environment variable? To reduce repetition by using variales multiple times and also help secure information
+
+How do you permanently save environment variables? by saving them n your .bash_profile or .zshrc
+
+What is a process? is a specific computer programme beign executed
+
+How do you list all processes running on your machine? ps -ax
+
+What is a PID? Its a. Unique identifier for individual process and its necessary when stopping a process.
+
+How do you terminate a process? either kill or kill -9
+
+What is the difference between kill and kill -9 using only kill might leave some processes alive but with special feature -9 it ensures all processes are killed
+
+What grep flag allows for case insensitive search? -i
+
+What grep flag allows for a certain number of lines before the match? -B
+
+What grep flag allows for a certain number of lines around the match? -C
+
+What grep flag allows for a certain number of lines after the match? -A
+
+What grep flag allows for full word search? -w
+
+What grep flag shows you the line number of a match? -n
+
+Part II
+
+Find all files inside the Desktop folder that have a name of "learn." find ~/Desktop -name "learn"
+
+Find all files inside the Desktop folder that start with a "P." find ~/Desktop -name "P.*"
+
+Find all files inside the Desktop folder that end with .txt find ~/Desktop -name "*.txt"
+
+Find all files inside the Desktop/views folder that have the name data somewhere in their filename. find ~/Desktop/views -name "*data*"
+
+Inside of the instructors.txt file, output the number of times the word "Elie" appears. grep -c "Elie" instructors.txt
+
+Inside of the instructors.txt file, list all matches for any full word that starts with a capital "P." grep -w "P.*" instructors.txt
+
+Inside of the instructors.txt file, list all the line numbers for any full word that starts with a "z" (it should match regardless of upper or lower case). grep -ni "z.*" instructors.txt
+
+Git Basics Exercises.
+
+Create a folder called learn_git_again: mkdir learn_git_again
+
+cd into the learn_git_again folder: cd learn_git_again
+
+Create a file called third.txt: touch third.txt
+
+Initialize an empty git repository git init
+
+Add third.txt to the staging area. git add third.txt
+
+Commit with the message "adding third.txt" git commit -m "adding third.txt"
+
+Check out your commit with git log. git log
+
+Create another file called fourth.txt touch fourth.txt
+
+Add fourth.txt to the staging area git add fourth.txt
+
+Commit with the message "adding fourth.txt" git commit -m "adding fourth.txt"
+
+Remove the third.txt file rm third.txt
+
+Add this change to the staging area git add third.txt
+
+Commit with the message "removing third.txt" git commit -m "removing third.txt"
+
+Check out your commits using git log git log
+
+Change your global setting to core.pager=cat git config --global core.pager "cat"
+
+Write the command to list all of the global configurations for git on your machine. - git config --global --list
